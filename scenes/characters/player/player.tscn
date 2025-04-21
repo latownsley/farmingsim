@@ -1,12 +1,13 @@
-[gd_scene load_steps=202 format=3 uid="uid://dguf2v5r70c1o"]
+[gd_scene load_steps=203 format=3 uid="uid://dguf2v5r70c1o"]
 
 [ext_resource type="Texture2D" uid="uid://bgrsb030gjii0" path="res://assets/game/characters/premium_character_spritesheet.png" id="1_bk1cn"]
 [ext_resource type="Script" path="res://scenes/characters/player/player.gd" id="1_ps8b4"]
-[ext_resource type="Script" path="res://scripts/state_machine/node_state_machine.gd" id="2_nawej"]
+[ext_resource type="Script" path="res://scenes/houses/scripts/state_machine/node_state_machine.gd" id="2_nawej"]
 [ext_resource type="Script" path="res://scenes/characters/player/idle_state.gd" id="3_oouvr"]
 [ext_resource type="Script" path="res://scenes/characters/player/walk_state.gd" id="4_4x5gt"]
 [ext_resource type="Script" path="res://scenes/characters/player/chopping_state.gd" id="6_71jex"]
 [ext_resource type="Script" path="res://scenes/characters/player/tilling_state.gd" id="7_62flt"]
+[ext_resource type="Script" path="res://scenes/characters/player/watering_state.gd" id="8_6qhfg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lmfsv"]
 atlas = ExtResource("1_bk1cn")
@@ -1152,7 +1153,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_v6jqg")
 }],
 "loop": false,
-"name": &"tiling_back",
+"name": &"tilling_back",
 "speed": 5.0
 }, {
 "frames": [{
@@ -1181,7 +1182,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_00slc")
 }],
 "loop": false,
-"name": &"tiling_front",
+"name": &"tilling_front",
 "speed": 5.0
 }, {
 "frames": [{
@@ -1210,7 +1211,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_272a1")
 }],
 "loop": false,
-"name": &"tiling_left",
+"name": &"tilling_left",
 "speed": 5.0
 }, {
 "frames": [{
@@ -1239,7 +1240,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_iibpa")
 }],
 "loop": false,
-"name": &"tiling_right",
+"name": &"tilling_right",
 "speed": 5.0
 }, {
 "frames": [{
@@ -1383,7 +1384,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fgn88")
 }],
-"loop": true,
+"loop": false,
 "name": &"watering_back",
 "speed": 5.0
 }, {
@@ -1412,7 +1413,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ob0xx")
 }],
-"loop": true,
+"loop": false,
 "name": &"watering_front",
 "speed": 5.0
 }, {
@@ -1441,7 +1442,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7q7kb")
 }],
-"loop": true,
+"loop": false,
 "name": &"watering_left",
 "speed": 5.0
 }, {
@@ -1470,25 +1471,26 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yobwn")
 }],
-"loop": true,
+"loop": false,
 "name": &"watering_right",
 "speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x3m4v"]
-radius = 9.05539
+radius = 4.0
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_ps8b4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_aw00l")
-animation = &"tiling_right"
+animation = &"watering_right"
 autoplay = "idle_front"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -9)
+position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_x3m4v")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
@@ -1510,5 +1512,12 @@ script = ExtResource("6_71jex")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 
-[node name="Tilling" type="Node" parent="StateMachine"]
+[node name="Tilling" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite_2d")]
 script = ExtResource("7_62flt")
+player = NodePath("../..")
+animated_sprite_2d = NodePath("../../AnimatedSprite2D")
+
+[node name="Watering" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite_2d")]
+script = ExtResource("8_6qhfg")
+player = NodePath("../..")
+animated_sprite_2d = NodePath("../../AnimatedSprite2D")
