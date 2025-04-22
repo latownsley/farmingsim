@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bgrsb030gjii0" path="res://assets/game/characters/premium_character_spritesheet.png" id="1_bk1cn"]
 [ext_resource type="Script" path="res://scenes/characters/player/player.gd" id="1_ps8b4"]
-[ext_resource type="Script" path="res://scenes/houses/scripts/state_machine/node_state_machine.gd" id="2_nawej"]
+[ext_resource type="Script" path="res://scripts/state_machine/node_state_machine.gd" id="2_nawej"]
 [ext_resource type="Script" path="res://scenes/characters/player/idle_state.gd" id="3_oouvr"]
 [ext_resource type="Script" path="res://scenes/characters/player/walk_state.gd" id="4_4x5gt"]
 [ext_resource type="Script" path="res://scenes/characters/player/chopping_state.gd" id="6_71jex"]
