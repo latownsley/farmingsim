@@ -1,16 +1,8 @@
-; Engine configuration file.
-; It's best edited using the editor UI and not directly,
-; since the parameters that go here are not all obvious.
-;
-; Format:
-;   [section] ; section goes between []
-;   param=value ; assign values to parameters
-
 config_version=5
 
 [application]
 
-config/name="Plato"
+config/name="farmingsim"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -29,7 +21,7 @@ window/stretch/scale_mode="integer"
 folder_colors={
 "res://assets/": "orange",
 "res://scenes/": "green",
-"res://scenes/houses/scripts/": "pink",
+"res://scripts/": "pink",
 "res://tilesets/": "yellow"
 }
 
@@ -70,6 +62,9 @@ hit={
 2d_physics/layer_1="Ground"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Interactable"
+2d_physics/layer_4="Tool"
+2d_physics/layer_5="Objects"
+2d_physics/layer_6="Collectable"
 
 [rendering]
 
