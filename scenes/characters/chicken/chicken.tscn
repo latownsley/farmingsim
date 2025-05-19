@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scenes/characters/chicken/chicken.gd" id="1_4jmod"]
 [ext_resource type="Texture2D" uid="uid://bod1ednydwsmd" path="res://assets/game/animals/chicken/free_chicken_sprites.png" id="1_l3s50"]
 [ext_resource type="Script" path="res://global_scripts/state_machine/node_state_machine.gd" id="2_gb3p3"]
-[ext_resource type="Script" path="res://scenes/characters/chicken/idle_state.gd" id="3_2ggyj"]
-[ext_resource type="Script" path="res://scenes/characters/chicken/walk_state.gd" id="4_ul5x7"]
+[ext_resource type="Script" path="res://scenes/characters/npc_states/idle_state.gd" id="3_2ggyj"]
+[ext_resource type="Script" path="res://scenes/characters/npc_states/walk_state.gd" id="4_ul5x7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_blp7h"]
 atlas = ExtResource("1_l3s50")
@@ -65,6 +65,7 @@ animations = [{
 radius = 4.0
 
 [node name="Chicken" type="CharacterBody2D"]
+collision_layer = 64
 script = ExtResource("1_4jmod")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -80,6 +81,8 @@ position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_k36ei")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 10.0
+path_postprocessing = 1
 avoidance_enabled = true
 radius = 5.0
 
