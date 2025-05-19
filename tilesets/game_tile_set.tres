@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=17 format=3 uid="uid://csvdm6h6hvtfq"]
+[gd_resource type="TileSet" load_steps=18 format=3 uid="uid://csvdm6h6hvtfq"]
 
 [ext_resource type="Texture2D" uid="uid://7mafv8eyojnd" path="res://assets/game/tilesets/ground_tiles/water_frames/water.png" id="1_8dkb2"]
 [ext_resource type="Texture2D" uid="uid://bih4s8vway3uf" path="res://assets/game/tilesets/ground_tiles/old_ground_tiles/grass.png" id="2_ff7wd"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dmq4v8nqqrkd2" path="res://scenes/houses/small_house.tscn" id="8_phpc4"]
 [ext_resource type="PackedScene" uid="uid://5u5xsxarh7kd" path="res://scenes/objects/trees/small_tree.tscn" id="9_c8gup"]
 [ext_resource type="PackedScene" uid="uid://d3nodyfxbobm4" path="res://scenes/objects/trees/large_tree.tscn" id="10_jl6jq"]
+[ext_resource type="PackedScene" uid="uid://bkc70cj5arb7a" path="res://scenes/objects/rocks/rock.tscn" id="11_t868b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4jx2p"]
 texture = ExtResource("1_8dkb2")
@@ -464,9 +465,13 @@ texture = ExtResource("4_skori")
 2:1/0 = 0
 2:0/0 = 0
 3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(4.375, -1.375, 5.875, -1, 8, -1.25, 8, 4.75, 4.5, 4.75, 4.25, 1.5)
 3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(4.375, -1.375, 5.875, -1, 8, -1.25, 8, 4.75, 4.5, 4.75, 4.25, 1.5)
 5:0/0 = 0
 6:0/0 = 0
 6:1/0 = 0
@@ -582,8 +587,10 @@ scenes/2/scene = ExtResource("7_q2v2t")
 scenes/3/scene = ExtResource("8_phpc4")
 scenes/4/scene = ExtResource("9_c8gup")
 scenes/5/scene = ExtResource("10_jl6jq")
+scenes/6/scene = ExtResource("11_t868b")
 
 [resource]
+physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Grass Terrain"
 terrain_set_0/terrain_0/color = Color(0.501961, 0.890196, 0.25098, 1)

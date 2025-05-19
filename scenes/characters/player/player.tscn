@@ -1484,6 +1484,7 @@ radius = 4.0
 radius = 3.16228
 
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
 collision_layer = 2
 script = ExtResource("1_ps8b4")
 
