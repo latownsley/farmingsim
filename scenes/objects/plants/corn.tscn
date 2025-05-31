@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwwv1geja8213"]
+
+[ext_resource type="Texture2D" uid="uid://fdc3cvx47o23" path="res://assets/game/objects/farming_plants.png" id="1_cdkc1"]
+[ext_resource type="PackedScene" uid="uid://2e7r65rtueky" path="res://scenes/objects/plants/watering_particles.tscn" id="2_pwy6k"]
+[ext_resource type="PackedScene" uid="uid://ch0ujm17xsny8" path="res://scenes/components/hurt_component.tscn" id="2_x5r2b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftb64"]
+atlas = ExtResource("1_cdkc1")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s43eh"]
+size = Vector2(6, 7.5)
+
+[node name="Corn" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -5)
+texture = SubResource("AtlasTexture_ftb64")
+
+[node name="WateringParticles" parent="." instance=ExtResource("2_pwy6k")]
+
+[node name="HurtComponent" parent="." instance=ExtResource("2_x5r2b")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
+position = Vector2(0, -0.75)
+shape = SubResource("RectangleShape2D_s43eh")

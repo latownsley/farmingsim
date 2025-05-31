@@ -23,6 +23,7 @@ radius = 4.0
 size = Vector2(10, 20)
 
 [node name="SmallTree" type="Sprite2D"]
+y_sort_enabled = true
 material = SubResource("ShaderMaterial_o4p0o")
 position = Vector2(0, -10)
 texture = SubResource("AtlasTexture_jf6vt")

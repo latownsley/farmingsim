@@ -11,6 +11,7 @@ region = Rect2(96, 96, 16, 16)
 radius = 9.05539
 
 [node name="Log" type="Sprite2D"]
+y_sort_enabled = true
 texture = SubResource("AtlasTexture_764d2")
 
 [node name="CollectableComponent" parent="." instance=ExtResource("2_cmy5i")]
