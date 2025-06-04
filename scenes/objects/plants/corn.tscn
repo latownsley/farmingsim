@@ -1,26 +1,42 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwwv1geja8213"]
+[gd_scene load_steps=11 format=3 uid="uid://dwwv1geja8213"]
 
 [ext_resource type="Texture2D" uid="uid://fdc3cvx47o23" path="res://assets/game/objects/farming_plants.png" id="1_cdkc1"]
+[ext_resource type="Script" path="res://scenes/objects/plants/corn.gd" id="1_je5ju"]
 [ext_resource type="PackedScene" uid="uid://2e7r65rtueky" path="res://scenes/objects/plants/watering_particles.tscn" id="2_pwy6k"]
 [ext_resource type="PackedScene" uid="uid://ch0ujm17xsny8" path="res://scenes/components/hurt_component.tscn" id="2_x5r2b"]
+[ext_resource type="PackedScene" uid="uid://c054ii8xj4xtq" path="res://scenes/objects/plants/flowering_particles.tscn" id="3_4krue"]
+[ext_resource type="PackedScene" uid="uid://kc4c76bafbb1" path="res://scenes/objects/plants/growth_cycle_component.tscn" id="5_c1fnt"]
+[ext_resource type="PackedScene" uid="uid://bfcfri8nq2tx2" path="res://scenes/components/save_data_component.tscn" id="7_hmm0i"]
+[ext_resource type="Resource" uid="uid://d3w3mb6v57fvd" path="res://resources/scene_data_resource.tres" id="8_rgfpn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ftb64"]
 atlas = ExtResource("1_cdkc1")
-region = Rect2(0, 16, 16, 16)
+region = Rect2(0, 0, 80, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s43eh"]
-size = Vector2(6, 7.5)
+size = Vector2(6.27831, 6.85287)
 
 [node name="Corn" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_je5ju")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1, -5)
+position = Vector2(1, -14)
 texture = SubResource("AtlasTexture_ftb64")
+hframes = 5
 
 [node name="WateringParticles" parent="." instance=ExtResource("2_pwy6k")]
+
+[node name="FloweringParticles" parent="." instance=ExtResource("3_4krue")]
+
+[node name="GrowthCycleComponent" parent="." instance=ExtResource("5_c1fnt")]
 
 [node name="HurtComponent" parent="." instance=ExtResource("2_x5r2b")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
-position = Vector2(0, -0.75)
+position = Vector2(0.5, -3)
+scale = Vector2(1.75206, 1.85312)
 shape = SubResource("RectangleShape2D_s43eh")
+
+[node name="SaveDataComponent" parent="." instance=ExtResource("7_hmm0i")]
+save_data_resource = ExtResource("8_rgfpn")

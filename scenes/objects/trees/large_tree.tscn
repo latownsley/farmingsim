@@ -25,7 +25,7 @@ size = Vector2(14, 24)
 [node name="LargeTree" type="Sprite2D"]
 y_sort_enabled = true
 material = SubResource("ShaderMaterial_tc4yo")
-position = Vector2(0, -11)
+position = Vector2(0, -14)
 texture = SubResource("AtlasTexture_3sqcx")
 script = ExtResource("2_egb1b")
 

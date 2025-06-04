@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="farmingsim"
+run/main_scene="res://scenes/main_scene.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,6 +20,9 @@ config/icon="res://icon.svg"
 ToolManager="*res://global_scripts/globals/tool_manager.gd"
 InventoryManager="*res://global_scripts/globals/inventory_manager.gd"
 DayAndNightCycleManager="*res://global_scripts/globals/day_and_night_cycle_manager.gd"
+SaveGameManager="*res://global_scripts/globals/save_game_manager.gd"
+GameManager="*res://global_scripts/globals/game_manager.gd"
+SceneManager="*res://global_scripts/globals/scene_manager.gd"
 
 [display]
 
@@ -34,6 +38,7 @@ window/stretch/scale_mode="integer"
 folder_colors={
 "res://assets/": "orange",
 "res://global_scripts/": "pink",
+"res://resources/": "purple",
 "res://scenes/": "green",
 "res://tilesets/": "yellow"
 }
@@ -41,6 +46,7 @@ folder_colors={
 [global_group]
 
 navigation_polygon_source_geometry_group=""
+player=""
 
 [input]
 
@@ -81,6 +87,21 @@ release_tool={
 Inventory={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194306,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+remove_dirt={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":true,"meta_pressed":false,"button_mask":1,"position":Vector2(181, 7),"global_position":Vector2(190, 53),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+save_game={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":80,"key_label":0,"unicode":112,"location":0,"echo":false,"script":null)
+]
+}
+game_menu={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
 

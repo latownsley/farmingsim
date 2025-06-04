@@ -65,6 +65,7 @@ animations = [{
 radius = 4.0
 
 [node name="Chicken" type="CharacterBody2D"]
+y_sort_enabled = true
 collision_layer = 64
 script = ExtResource("1_4jmod")
 

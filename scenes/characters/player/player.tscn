@@ -1483,7 +1483,7 @@ radius = 4.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_nwcm6"]
 radius = 3.16228
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true
 collision_layer = 2
 script = ExtResource("1_ps8b4")
@@ -1523,10 +1523,11 @@ script = ExtResource("7_62flt")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 
-[node name="Watering" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite_2d")]
+[node name="Watering" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite_2d", "hit_component_collision_shape")]
 script = ExtResource("8_6qhfg")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
+hit_component_collision_shape = NodePath("../../HitComponent/HitComponentCollisionShape2D")
 
 [node name="HitComponent" parent="." instance=ExtResource("9_diu8n")]
 

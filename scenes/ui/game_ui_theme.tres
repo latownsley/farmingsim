@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=38 format=3 uid="uid://bp7tfcykql634"]
+[gd_resource type="Theme" load_steps=52 format=3 uid="uid://bp7tfcykql634"]
 
 [ext_resource type="Texture2D" uid="uid://r3cwahvym8hg" path="res://assets/all_UI_assets_one_sheet.png" id="1_wssg4"]
 [ext_resource type="FontVariation" uid="uid://bmvmsyb4sswcr" path="res://assets/fonts/zx_palm_variation.tres" id="2_qmmrh"]
@@ -100,6 +100,73 @@ texture_margin_right = 3.0
 texture_margin_bottom = 4.0
 region_rect = Rect2(2, 2, 71, 30)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dt6th"]
+load_path = "res://.godot/imported/all_UI_assets_one_sheet.png-a523e8251bd71092c883180a1829c495.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kj0ay"]
+atlas = SubResource("CompressedTexture2D_dt6th")
+region = Rect2(11, 59, 26, 28)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ineq0"]
+texture = SubResource("AtlasTexture_kj0ay")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1elg3"]
+load_path = "res://.godot/imported/all_UI_assets_one_sheet.png-a523e8251bd71092c883180a1829c495.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5t24g"]
+atlas = SubResource("CompressedTexture2D_1elg3")
+region = Rect2(11, 59, 26, 28)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6c6u8"]
+texture = SubResource("AtlasTexture_5t24g")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7yxr7"]
+load_path = "res://.godot/imported/all_UI_assets_one_sheet.png-a523e8251bd71092c883180a1829c495.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aardf"]
+atlas = SubResource("CompressedTexture2D_7yxr7")
+region = Rect2(11, 11, 26, 28)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8k34p"]
+texture = SubResource("AtlasTexture_aardf")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25b17"]
+atlas = ExtResource("1_wssg4")
+region = Rect2(11, 155, 26, 28)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f6uw7"]
+texture = SubResource("AtlasTexture_25b17")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yht7d"]
+load_path = "res://.godot/imported/all_UI_assets_one_sheet.png-a523e8251bd71092c883180a1829c495.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hixtl"]
+atlas = SubResource("CompressedTexture2D_yht7d")
+region = Rect2(11, 107, 26, 28)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lhuto"]
+texture = SubResource("AtlasTexture_hixtl")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 5.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_cpsm0"]
 atlas = ExtResource("1_wssg4")
 region = Rect2(107, 59, 26, 26)
@@ -192,11 +259,20 @@ DayAndNightCounterPanel/styles/panel = SubResource("StyleBoxTexture_01iyj")
 DayAndNightLabel/base_type = &"Label"
 DayAndNightLabel/font_sizes/font_size = 18
 DayAndNightLabel/fonts/font = ExtResource("2_wri1x")
+GameMenuButton/base_type = &"Button"
+GameMenuButton/font_sizes/font_size = 18
+GameMenuButton/fonts/font = ExtResource("2_wri1x")
+GameMenuButton/styles/disabled = SubResource("StyleBoxTexture_ineq0")
+GameMenuButton/styles/focus = SubResource("StyleBoxTexture_6c6u8")
+GameMenuButton/styles/hover = SubResource("StyleBoxTexture_8k34p")
+GameMenuButton/styles/normal = SubResource("StyleBoxTexture_f6uw7")
+GameMenuButton/styles/pressed = SubResource("StyleBoxTexture_lhuto")
 InventoryItemPanel/base_type = &"PanelContainer"
 InventoryItemPanel/styles/panel = SubResource("StyleBoxTexture_l1vso")
 InventoryLabel/base_type = &"Label"
 InventoryLabel/font_sizes/font_size = 8
 InventoryLabel/fonts/font = ExtResource("2_qmmrh")
+Label/fonts/font = ExtResource("2_wri1x")
 MarginContainer/constants/margin_bottom = 10
 MarginContainer/constants/margin_left = 10
 MarginContainer/constants/margin_right = 10

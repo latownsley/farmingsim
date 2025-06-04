@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=4 uid="uid://dj07itoxfsyrs"]
+[gd_scene load_steps=6 format=4 uid="uid://dj07itoxfsyrs"]
 
 [ext_resource type="TileSet" uid="uid://csvdm6h6hvtfq" path="res://tilesets/game_tile_set.tres" id="1_3hoe2"]
 [ext_resource type="PackedScene" uid="uid://dguf2v5r70c1o" path="res://scenes/characters/player/player.tscn" id="2_lv21b"]
+[ext_resource type="PackedScene" uid="uid://dwwv1geja8213" path="res://scenes/objects/plants/corn.tscn" id="2_rkw7h"]
+[ext_resource type="PackedScene" uid="uid://dx0jlm44mhwnj" path="res://scenes/objects/plants/tomato.tscn" id="3_ooni0"]
+[ext_resource type="PackedScene" uid="uid://cc74v1773lc1f" path="res://scenes/ui/game_screen.tscn" id="5_t36sn"]
 
 [node name="TestSceneTilemapLayerYSort" type="Node2D"]
 y_sort_enabled = true
@@ -28,11 +31,29 @@ tile_map_data = PackedByteArray("AAAPAAwABAADAAMAAAAPAA0ABAADAAQAAAAQAA0ABAABAAA
 tile_set = ExtResource("1_3hoe2")
 
 [node name="Objects" type="TileMapLayer" parent="GameTileMap"]
-tile_map_data = PackedByteArray("AAAHAAcABQAAAAAABAALAAYABQAAAAAABAAHAAkABQAAAAAABQAOAAkABQAAAAAABQAKAAoABQAAAAAABgAJAAYABQAAAAAABgAFAAgABQAAAAAABgAPAAYABQAAAAAABgA=")
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAAHAAcABQAAAAAABAALAAYABQAAAAAABAAHAAkABQAAAAAABQAOAAkABQAAAAAABQAJAAYABQAAAAAABgAFAAgABQAAAAAABgAPAAYABQAAAAAABgA=")
 tile_set = ExtResource("1_3hoe2")
+
+[node name="Crops" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Corn" parent="Crops" instance=ExtResource("2_rkw7h")]
+position = Vector2(94, 196)
+
+[node name="Tomato" parent="Crops" instance=ExtResource("3_ooni0")]
+position = Vector2(130, 194)
+
+[node name="Corn2" parent="Crops" instance=ExtResource("2_rkw7h")]
+position = Vector2(94, 212)
+
+[node name="Tomato2" parent="Crops" instance=ExtResource("3_ooni0")]
+position = Vector2(130, 211)
 
 [node name="Player" parent="." instance=ExtResource("2_lv21b")]
 position = Vector2(117, 82)
 current_tool = 1
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="GameScreen" parent="." instance=ExtResource("5_t36sn")]

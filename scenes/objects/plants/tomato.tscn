@@ -1,0 +1,43 @@
+[gd_scene load_steps=11 format=3 uid="uid://dx0jlm44mhwnj"]
+
+[ext_resource type="Texture2D" uid="uid://fdc3cvx47o23" path="res://assets/game/objects/farming_plants.png" id="1_1esiv"]
+[ext_resource type="Script" path="res://scenes/objects/plants/tomato.gd" id="1_7fjr6"]
+[ext_resource type="PackedScene" uid="uid://2e7r65rtueky" path="res://scenes/objects/plants/watering_particles.tscn" id="2_77gq3"]
+[ext_resource type="PackedScene" uid="uid://c054ii8xj4xtq" path="res://scenes/objects/plants/flowering_particles.tscn" id="3_ourd0"]
+[ext_resource type="PackedScene" uid="uid://kc4c76bafbb1" path="res://scenes/objects/plants/growth_cycle_component.tscn" id="4_fqk42"]
+[ext_resource type="PackedScene" uid="uid://ch0ujm17xsny8" path="res://scenes/components/hurt_component.tscn" id="5_f06wv"]
+[ext_resource type="PackedScene" uid="uid://bfcfri8nq2tx2" path="res://scenes/components/save_data_component.tscn" id="7_32aax"]
+[ext_resource type="Resource" uid="uid://d3w3mb6v57fvd" path="res://resources/scene_data_resource.tres" id="8_yb7or"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mho7m"]
+atlas = ExtResource("1_1esiv")
+region = Rect2(0, 64, 64, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ta6id"]
+size = Vector2(35.8621, 31.871)
+
+[node name="Tomato" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_7fjr6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -5)
+texture = SubResource("AtlasTexture_mho7m")
+hframes = 4
+
+[node name="WateringParticles" parent="." instance=ExtResource("2_77gq3")]
+
+[node name="FloweringParticles" parent="." instance=ExtResource("3_ourd0")]
+
+[node name="GrowthCycleComponent" parent="." instance=ExtResource("4_fqk42")]
+
+[node name="HurtComponent" parent="." instance=ExtResource("5_f06wv")]
+tool = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
+position = Vector2(0.5, -2.5)
+scale = Vector2(0.365246, 0.399397)
+shape = SubResource("RectangleShape2D_ta6id")
+
+[node name="SaveDataComponent" parent="." instance=ExtResource("7_32aax")]
+save_data_resource = ExtResource("8_yb7or")

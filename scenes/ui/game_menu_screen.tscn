@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://jxb6wi1qi6rs"]
+
+[ext_resource type="Script" path="res://scenes/ui/game_menu_screen.gd" id="1_2iqee"]
+[ext_resource type="Theme" uid="uid://bp7tfcykql634" path="res://scenes/ui/game_ui_theme.tres" id="1_4p0i7"]
+[ext_resource type="PackedScene" uid="uid://b0oqbf8os6f4d" path="res://scenes/ui/game_menu_screen_background.tscn" id="1_vuxu0"]
+[ext_resource type="FontVariation" uid="uid://bmvmsyb4sswcr" path="res://assets/fonts/zx_palm_variation.tres" id="2_vluxx"]
+[ext_resource type="AudioStream" uid="uid://4c2dexmfetwa" path="res://assets/audio/668879__zhr__retroclassic-game-music.wav" id="5_dnx4n"]
+
+[node name="GameMenuScreen" type="CanvasLayer"]
+script = ExtResource("1_2iqee")
+
+[node name="GameMenuScreenBackground" parent="." instance=ExtResource("1_vuxu0")]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_4p0i7")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.463068, 0.166911, 0.44264, 1)
+theme_override_colors/font_shadow_color = Color(0.846675, 0.86303, 0.832202, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("2_vluxx")
+theme_override_font_sizes/font_size = 56
+text = "PLATO"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="StartGameButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 29)
+layout_mode = 2
+theme_type_variation = &"GameMenuButton"
+text = "START"
+
+[node name="SaveGameButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 29)
+layout_mode = 2
+theme_type_variation = &"GameMenuButton"
+text = "SAVE"
+
+[node name="ExitGameButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 29)
+layout_mode = 2
+theme_type_variation = &"GameMenuButton"
+text = "EXIT"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_dnx4n")
+autoplay = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SaveGameButton" to="." method="_on_save_game_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ExitGameButton" to="." method="_on_exit_game_button_pressed"]

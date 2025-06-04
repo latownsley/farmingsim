@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://b40x6ae7a3n8i"]
+
+[ext_resource type="PackedScene" uid="uid://cd5sia4eqppot" path="res://scenes/components/day_night_cycle_component.tscn" id="1_t5wt4"]
+[ext_resource type="PackedScene" uid="uid://bxbdhhs0loenc" path="res://scenes/levels/level_1.tscn" id="2_85aed"]
+[ext_resource type="PackedScene" uid="uid://cc74v1773lc1f" path="res://scenes/ui/game_screen.tscn" id="2_fl402"]
+[ext_resource type="PackedScene" uid="uid://dguf2v5r70c1o" path="res://scenes/characters/player/player.tscn" id="3_xew5d"]
+[ext_resource type="AudioStream" uid="uid://4c2dexmfetwa" path="res://assets/audio/668879__zhr__retroclassic-game-music.wav" id="5_l1mos"]
+
+[node name="MainScene" type="Node"]
+
+[node name="DayNightCycleComponent" parent="." instance=ExtResource("1_t5wt4")]
+
+[node name="GameRoot" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="LevelRoot" type="Node2D" parent="GameRoot"]
+y_sort_enabled = true
+
+[node name="Level1" parent="GameRoot/LevelRoot" instance=ExtResource("2_85aed")]
+
+[node name="Player" parent="GameRoot" instance=ExtResource("3_xew5d")]
+position = Vector2(157, 180)
+
+[node name="Camera2D" type="Camera2D" parent="GameRoot/Player"]
+
+[node name="GameScreen" parent="." instance=ExtResource("2_fl402")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_l1mos")
+autoplay = true
