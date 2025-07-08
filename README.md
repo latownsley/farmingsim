@@ -1,4 +1,4 @@
-# 🌾 Farming Sim (WIP)
+# 🌾 Farming Sim
 
 A 2D farming simulation game inspired by *Harvest Moon* and *Stardew Valley*, built in Godot Engine. This project is currently in development, with features like state-based character behavior, tool usage, and movement mechanics being implemented.
 
